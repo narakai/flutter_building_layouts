@@ -99,6 +99,7 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
         appBar: new AppBar(
           title: new Text('Top Lakes'),
         ),
+        bottomNavigationBar: new BottomWidget(),
         body: new ListView(
           children: [
             new Image.asset(
@@ -115,6 +116,44 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
       ),
     );
   }
+}
+
+class BottomWidget extends StatefulWidget {
+  @override
+  _BottomWidgetState createState() => new _BottomWidgetState();
+}
+
+class _BottomWidgetState extends State<BottomWidget> {
+  int _index;
+
+  @override
+  void initState() {
+    super.initState();
+    _index = 0;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new BottomNavigationBar(
+        currentIndex: _index,
+        onTap: (int _index) {
+          setState(() {
+            this._index = _index;
+          });
+        },
+        type: BottomNavigationBarType.fixed,
+        items: [
+          new BottomNavigationBarItem(
+            icon: new Icon(Icons.home),
+            title: new Text("Home"),
+          ),
+          new BottomNavigationBarItem(
+            icon: new Icon(Icons.favorite),
+            title: new Text("Favorites"),
+          ),
+        ]);
+  }
+
 }
 
 //Favorite部分实现
