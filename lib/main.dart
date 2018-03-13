@@ -4,8 +4,10 @@ void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  // App 入口
   @override
   Widget build(BuildContext context) {
+    //大图下文字部分
     Widget titleSection = new Container(
       padding: const EdgeInsets.all(32.0),
       child: new Row(
@@ -32,16 +34,13 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-//          new Icon(
-//            Icons.star,
-//            color: Colors.red[500],
-//          ),
-//          new Text('41'),
+          //Favorite部分
           new FavoriteWidget(),
         ],
       ),
     );
 
+    //button行样式
     Column buildButtonColumn(IconData icon, String label) {
       Color color = Theme
           .of(context)
@@ -67,6 +66,7 @@ class MyApp extends StatelessWidget {
       );
     }
 
+    //button行
     Widget buttonSection = new Container(
       child: new Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -78,6 +78,7 @@ class MyApp extends StatelessWidget {
       ),
     );
 
+    //desc文字
     Widget textSection = new Container(
       padding: const EdgeInsets.all(32.0),
       child: new Text(
@@ -88,6 +89,7 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
       ),
     );
 
+    //返回App
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
@@ -115,6 +117,7 @@ Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese Alps. Situate
   }
 }
 
+//Favorite部分实现
 class FavoriteWidget extends StatefulWidget {
   @override
   _FavoriteWidgetState createState() => new _FavoriteWidgetState();
